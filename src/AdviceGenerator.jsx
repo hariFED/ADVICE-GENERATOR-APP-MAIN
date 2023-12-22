@@ -6,25 +6,16 @@ import DividerPhone from './components/DividerPhone';
 const AdviceGenerator = () => {
   const [state, setState] = useState("Click on the button");
   const [id, setId] = useState();
-  const [isLoading, setIsLoading] = useState(false);
-
+  
   async function fetchData() {
-    try {
-      setIsLoading(true);
       const response = await fetch("https://api.adviceslip.com/advice");
       const result = await response.json();
       let output = result.slip.advice;
       let idNum = result.slip.id;
-
-      console.log(result);
       setId(idNum);
-      setState(output);
-    } finally {
-      setIsLoading(false);
-    }
+      setState(output);  
   }
-
-  function handleClick() {
+function handleClick() {
     fetchData();
   }
 
@@ -34,7 +25,7 @@ const AdviceGenerator = () => {
         <div className="box">
           <div className="title manrope">Advice <span>#{id}</span></div>
           <div className="font-bold manrope advice">
-            &ldquo;{isLoading ? 'Loading' : state}&rdquo;
+            &ldquo;{state}&rdquo;
           </div>
           <hr />
           <div className='hidden pt-5 sm:block'>
@@ -44,7 +35,7 @@ const AdviceGenerator = () => {
             <DividerPhone />
           </div>
           <div className='absolute -bottom-8'>
-            <button onClick={handleClick} className='dice' disabled={isLoading}>
+            <button onClick={handleClick} className='dice'>
               <DiceIcon />
             </button>
           </div>
