@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.manrope {
+  font-family: "Manrope", sans-serif;
+}
+.attribution {
+  text-align: center;
+  color: white;
+}
+.attribution a {
+  color: hsl(150, 100%, 66%);
+}
+.box {
+  @apply relative p-10 bg-[#323a49] md:w-[45%] w-[90%] md:mx-0  flex flex-col justify-center  items-center md:pt-10 md:pb-20 md:px-10 rounded-xl;
+}
+.title {
+  @apply uppercase tracking-[0.2em] text-[#52ffa8];
+}
+.advice {
+  @apply text-center text-[28px] h-56  flex justify-center items-center   text-[#cee3e9] md:h-48;
+}
+.dice {
+  @apply p-5 rounded-full  bg-[#52ffa8] hover:shadow-[0_0_60px_-15px_rgba(82,255,168,20)]  duration-300;
+}
